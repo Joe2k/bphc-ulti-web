@@ -1,19 +1,20 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Roboto } from "next/font/google";
-
-const roboto = Roboto({ subsets: ["latin"], weight: "500" });
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>BPHC Ultimate</title>
-        <meta name="description" content="Home of BPHC Ultimate Team" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <div className={roboto.className}>
+    return (
+        <div className="px-6">
+            <Head>
+                <title>BPHC Ultimate</title>
+                <meta name="description" content="Home of BPHC Ultimate Team" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <h1>Landing Page!</h1>
+            {/* <div className={roboto.className}>
         <div className="m-8">
           <h1 className="text-center text-4xl text-red-400">BPHC Ultimate</h1>
           <div className="flex justify-center">
@@ -31,7 +32,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-      </div>
-    </>
-  );
+      </div> */}
+        </div>
+    );
 }

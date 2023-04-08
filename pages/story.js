@@ -1,7 +1,7 @@
 export default function Story() {
-  return (
-    <>
-      <h1>Story Page</h1>
-    </>
-  );
+    return (
+        <div className="px-6">
+            <h1>Story Page</h1>
+        </div>
+    );
 }
