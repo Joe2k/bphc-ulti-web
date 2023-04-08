@@ -14,7 +14,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <h1 className="text-center text-4xl">BPHC Ultimate</h1>
-            <div className="flex justify-center">
+            <div className="flex justify-center flex-wrap">
                 <Link
                     href="/story"
                     className="block m-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"

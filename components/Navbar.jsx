@@ -16,7 +16,7 @@ export default function Navbar() {
             <nav className="sticky flex flex-wrap p-6 md:px-0 items-center justify-between">
                 <div className="flex items-center flex-shrink-0 text-white">
                     <svg
-                        className="mr-4 fill-red-500 dark:fill-red-400 h-12"
+                        className="mr-4 fill-red-500 dark:fill-red-400 md:h-12 h-10"
                         version="1.2"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 1224 1584"
@@ -31,11 +31,27 @@ export default function Navbar() {
                             </g>
                         </g>
                     </svg>
-                    <h1 className="text-semibold text-center text-3xl text-red-500 dark:text-red-400">
+                    <h1 className="text-semibold text-center text-2xl md:text-3xl text-red-500 dark:text-red-400">
                         <Link href="/">BPHC Ultimate</Link>
                     </h1>
                 </div>
                 <div className="flex items-center">
+                    <button
+                        aria-label="Toggle Dark Mode"
+                        type="button"
+                        className="inline md:hidden h-10 w-10 rounded p-1.5 hover:text-red-500 dark:hover:text-red-400 text-gray-500 dark:text-gray-400 "
+                        onClick={() =>
+                            setTheme(
+                                resolvedTheme === "dark" ? "light" : "dark"
+                            )
+                        }
+                    >
+                        {mounted && theme === "dark" ? (
+                            <SunIcon />
+                        ) : (
+                            <MoonIcon />
+                        )}
+                    </button>
                     <button
                         data-collapse-toggle="navbar-default"
                         type="button"
@@ -62,22 +78,6 @@ export default function Navbar() {
                                 clip-rule="evenodd"
                             ></path>
                         </svg>
-                    </button>
-                    <button
-                        aria-label="Toggle Dark Mode"
-                        type="button"
-                        className="inline md:hidden h-10 w-10 rounded p-1.5 hover:text-red-500 dark:hover:text-red-400 text-gray-500 dark:text-gray-400 "
-                        onClick={() =>
-                            setTheme(
-                                resolvedTheme === "dark" ? "light" : "dark"
-                            )
-                        }
-                    >
-                        {mounted && theme === "dark" ? (
-                            <SunIcon />
-                        ) : (
-                            <MoonIcon />
-                        )}
                     </button>
                 </div>
 
