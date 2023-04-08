@@ -1,44 +1,35 @@
-import { useState } from "react";
-import { Gallery } from "react-grid-gallery";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
-import images from "../assets/images";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import images from "@/assets/images";
 
-export default function GalleryPage() {
-    const [index, setIndex] = useState(-1);
-
-    const currentImage = images[index];
-    const nextIndex = (index + 1) % images.length;
-    const nextImage = images[nextIndex] || currentImage;
-    const prevIndex = (index + images.length - 1) % images.length;
-    const prevImage = images[prevIndex] || currentImage;
-
-    const handleClick = (index, item) => setIndex(index);
-    const handleClose = () => setIndex(-1);
-    const handleMovePrev = () => setIndex(prevIndex);
-    const handleMoveNext = () => setIndex(nextIndex);
-
+const GalleryPage = () => {
     return (
-        <div>
-            <Gallery
-                images={images}
-                onClick={handleClick}
-                enableImageSelection={false}
-            />
-            {!!currentImage && (
-                <Lightbox
-                    mainSrc={currentImage.original}
-                    imageTitle={currentImage.caption}
-                    mainSrcThumbnail={currentImage.src}
-                    nextSrc={nextImage.original}
-                    nextSrcThumbnail={nextImage.src}
-                    prevSrc={prevImage.original}
-                    prevSrcThumbnail={prevImage.src}
-                    onCloseRequest={handleClose}
-                    onMovePrevRequest={handleMovePrev}
-                    onMoveNextRequest={handleMoveNext}
-                />
-            )}
+        <div className="gap-0 columns-1 md:columns-2 lg:columns-3">
+            {images.map((image) => {
+                return (
+                    <div key={image.key} className="w-auto h-auto p-2">
+                        <div
+                            className="relative h-0"
+                            style={{
+                                paddingBottom: `${
+                                    (image.height / image.width) * 100
+                                }%`,
+                            }}
+                        >
+                            <Image
+                                className="rounded-lg"
+                                src={image.src}
+                                alt={image.alt}
+                                fill
+                                style={{ objectFit: "cover" }}
+                            />
+                        </div>
+                    </div>
+                );
+            })}
         </div>
     );
-}
+};
+
+export default GalleryPage;
