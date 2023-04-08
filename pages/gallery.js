@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Gallery } from "react-grid-gallery";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
-import images from "./ass/images";
+import images from "../assets/images";
 
-export default function Gallery() {
+export default function GalleryPage() {
     const [index, setIndex] = useState(-1);
 
     const currentImage = images[index];
