@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function StoryCard() {
     return (
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 m-4">
-            <a href="/story/ram" className="block relative w-full h-48">
+            <Link href="/story/ram" className="block relative w-full h-48">
                 <Image
                     src="https://images.unsplash.com/photo-1628891890467-b79f2c8ba9dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvcnRzJTIwdGVhbXxlbnwwfHwwfHw%3D"
                     alt="Team Pic"
@@ -13,10 +14,10 @@ export default function StoryCard() {
                     className="rounded-t-lg"
                     unoptimized={true}
                 />
-            </a>
+            </Link>
 
             <div className="p-5">
-                <a href="/story/ram">
+                <Link href="/story/ram">
                     <div className="mb-2 flow-root">
                         <div className="float-left ">
                             <img
@@ -36,12 +37,12 @@ export default function StoryCard() {
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         The one where we beat Goa :)
                     </h5>
-                </a>
+                </Link>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                     Here are the biggest achievements, fun and some nerve
                     cracking moments of last year!
                 </p>
-                <a
+                <Link
                     href="/story/ram"
                     className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
@@ -59,7 +60,7 @@ export default function StoryCard() {
                             clip-rule="evenodd"
                         ></path>
                     </svg>
-                </a>
+                </Link>
             </div>
         </div>
     );

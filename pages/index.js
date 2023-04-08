@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -14,7 +15,7 @@ export default function Home() {
             </Head>
             <h1 className="text-center text-4xl">BPHC Ultimate</h1>
             <div className="flex justify-center">
-                <a
+                <Link
                     href="/story"
                     className="block m-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
                 >
@@ -24,9 +25,9 @@ export default function Home() {
                     <p className="font-normal text-gray-700 dark:text-gray-400">
                         Have a read of the historic stories through time.
                     </p>
-                </a>
+                </Link>
 
-                <a
+                <Link
                     href="/jersey-wall"
                     className="block m-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
                 >
@@ -36,7 +37,7 @@ export default function Home() {
                     <p className="font-normal text-gray-700 dark:text-gray-400">
                         Have a look of our teams from different seasons.
                     </p>
-                </a>
+                </Link>
             </div>
         </div>
     );
