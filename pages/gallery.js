@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import images from "@/assets/images";
+import data from "@/assets/images";
 import Event from "@/components/event";
 
 const GalleryPage = () => {
@@ -12,15 +12,15 @@ const GalleryPage = () => {
                     Gallery
                 </p>
             </div>
-            {images.map((image) => {
+            {Object.keys(data).map((title) => {
                 return (
-                    <div>
+                    <div key={title}>
                         <div>
                             <p className="text-left text-sm md:text-lg lg:text-3xl p-2">
-                                Event
+                                {title}
                             </p>
                         </div>
-                        <Event data={image} />
+                        <Event data={data[title]} />
                     </div>
                 );
             })}
