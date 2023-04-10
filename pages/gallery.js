@@ -8,7 +8,7 @@ const GalleryPage = () => {
     return (
         <div>
             <div>
-                <p className="text-center text-sky-400 text-xl md:text-3xl lg:text-6xl">
+                <p className="text-center text-xl md:text-3xl lg:text-4xl">
                     Gallery
                 </p>
             </div>
@@ -16,7 +16,7 @@ const GalleryPage = () => {
                 return (
                     <div key={title}>
                         <div>
-                            <p className="text-left text-sm md:text-lg lg:text-3xl p-2">
+                            <p className="text-left text-sm md:text-lg lg:text-xlxl p-2">
                                 {title}
                             </p>
                         </div>
