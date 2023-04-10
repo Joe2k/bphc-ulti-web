@@ -8,8 +8,8 @@ export default function StoryCard() {
                 <Image
                     src="https://images.unsplash.com/photo-1628891890467-b79f2c8ba9dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvcnRzJTIwdGVhbXxlbnwwfHwwfHw%3D"
                     alt="Team Pic"
-                    width={0}
-                    height={0}
+                    // width={0}
+                    // height={0}
                     fill={true}
                     className="rounded-t-lg"
                     unoptimized={true}

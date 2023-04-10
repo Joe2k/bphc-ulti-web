@@ -13,7 +13,7 @@ export default function Navbar() {
 
     return (
         <div>
-            <nav className="sticky flex flex-wrap p-6 lg:px-0 items-center justify-between">
+            <nav className="flex flex-wrap p-6 lg:px-0 items-center justify-between">
                 <div className="flex items-center flex-shrink-0 text-white">
                     <svg
                         className="mr-4 fill-red-500 dark:fill-red-400 md:h-12 h-10"
