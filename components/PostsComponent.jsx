@@ -33,34 +33,38 @@ const DynamicDisplay = ({dynamicContentType,dynamicContent}) => {
     </div>
 }
 
-const SinglePostComponent = (props) => {
+const SinglePostComponent = ({post}) => {
+    const dynamicContentType = post.vid ? "vid" : post.ytvid ? "ytvid" : post.picture ? "picture" : null;
     return <>
     <div className="mt-10 mb-10">
-        <p className="text-lg">{props.desc}</p>
-        <time className="text-sm font-normal text-gray-400 dark:text-gray-500">March, 2023</time>
-        <DynamicDisplay {...props}/>
+        <p className="text-lg">{post.desc}</p>
+        <time className="text-sm font-normal italic text-gray-400 dark:text-gray-500">March, 2023</time>
+        <p className="font-normal text-gray-400 dark:text-gray-500">{post.content}</p>
+        {
+            dynamicContentType!=null ? <DynamicDisplay dynamicContentType={dynamicContentType} dynamicContent={post[dynamicContentType]}/> : <></>
+        }
     </div>
-    </>
+    </> 
 }
 
-const YearComponent = (props) => {
-    return <div id={props.year} className="border mb-20 p-8 bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <p className="text-2xl underline underline-offset-8 decoration-red-500 dark:decoration-red-400">{props.year}</p>
-    <SinglePostComponent desc="BPHC vs Skywalkers @ NCUC 2022" dynamicContentType="ytvid" dynamicContent="https://www.youtube.com/embed/yD1juX7c_T8"/>
-    <SinglePostComponent desc="We flyin high sometimes!" dynamicContentType="picture" dynamicContent="https://res.cloudinary.com/deejstqqy/image/upload/v1680948188/cld-sample-3.jpg"/>            
-    <SinglePostComponent desc="When Life was sweet :)" dynamicContentType="picture" dynamicContent="https://res.cloudinary.com/deejstqqy/image/upload/v1680948177/samples/cloudinary-group.jpg"/>
+const YearComponent = ({year,posts}) => {
+    return <div id={year} className="border mb-20 p-8 bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <p className="text-2xl underline underline-offset-8 decoration-red-500 dark:decoration-red-400">{year}</p>
+    {
+        posts.map((post)=>{
+            return <SinglePostComponent post={post}/>
+        })
+    }
     </div>
 }
 
-export default function PostsComponent(){
+export default function PostsComponent({postData}){
+
     return <div className="relative  grow flex flex-col px-6 lg:px-2">
-        <div id="2023" className="border mb-20 p-8 bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <p className="text-2xl underline underline-offset-8 decoration-red-500 dark:decoration-red-400">2023</p>
-            <SinglePostComponent desc="NCS Sectionals at BITS Hyd!" dynamicContentType="ytvid" dynamicContent="https://www.youtube.com/embed/cmuwg8XMyVg?modestbranding=1"/>
-            <SinglePostComponent desc="Candids at @Blr, Lalbagh" dynamicContentType="picture" dynamicContent="https://res.cloudinary.com/deejstqqy/image/upload/v1681122499/LALBAGH_zjt03j.jpg"/>            
-            <SinglePostComponent desc="Practice sessions in Blr for our 3rd NCUC!" dynamicContentType="vid" dynamicContent="https://res.cloudinary.com/deejstqqy/video/upload/v1681122561/NCUC_2022_Prep_Video_lbwlt8.mp4"/>
-        </div>
-        <YearComponent year="2022"/>
-        <YearComponent year="2021"/>
+        {
+            Object.entries(postData).map(([year,posts])=>{
+               return <YearComponent year={year} posts={posts}/>
+            })
+        }
     </div>
 }
