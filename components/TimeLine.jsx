@@ -23,7 +23,7 @@ export default function Timeline({years}){
         <ol className="relative border-l border-gray-400 dark:border-gray-700">
             {
                 years.map(year =>{
-                    return <YearComponent year={year} />
+                    return <YearComponent key={year} year={year} />
                 })
             }
         </ol>
