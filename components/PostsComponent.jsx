@@ -43,7 +43,7 @@ const SinglePostComponent = ({post}) => {
 }
 
 const YearComponent = ({year,posts}) => {
-    return <div id={year} className="border mb-20 p-8 bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    return <div id={year} className="border mb-20 p-8 bg-white border-gray-200 rounded-lg drop-shadow-2xl dark:bg-gray-800 dark:border-gray-700">
     <p className="text-2xl underline underline-offset-8 decoration-red-500 dark:decoration-red-400">{year}</p>
     {
         posts.map((post)=>{

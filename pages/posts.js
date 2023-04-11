@@ -1,5 +1,6 @@
 import Timeline from "@/components/TimeLine";
 import PostsComponent from "@/components/PostsComponent";
+import SmallScreenToggle from "@/components/SmallScreenToggle";
 
 export default function posts(){
 
@@ -44,7 +45,10 @@ export default function posts(){
     };
 
     return <div className="relative overflow-visible flex flex-row">
+      <div className="hidden md:block lg:block mr-20 ml-4 px-6 lg:px-0">
         <Timeline years={Object.keys(response)} />
+      </div>
         <PostsComponent postData={response}/>
+        <SmallScreenToggle/>
     </div>
 }
