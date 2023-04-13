@@ -82,7 +82,7 @@ const YearComponent = ({ year, posts }) => {
 export default function PostsComponent({ postData }) {
     return (
         <div className="relative  grow flex flex-col px-6 lg:px-2">
-            {Object.entries(postData).map(([year, posts]) => {
+            {Object.entries(postData).reverse().map(([year, posts]) => {
                 return <YearComponent key={year} year={year} posts={posts} />;
             })}
         </div>

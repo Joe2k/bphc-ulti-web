@@ -4,7 +4,7 @@ import SmallScreenToggle from "@/components/SmallScreenToggle";
 
 export default function posts() {
     const response = {
-        2023: [
+        2021: [
             {
                 timestamp: new Date("2023-05-18T16:00:00Z"),
                 vid: "https://res.cloudinary.com/deejstqqy/video/upload/v1681122561/NCUC_2022_Prep_Video_lbwlt8.mp4",
@@ -22,7 +22,7 @@ export default function posts() {
                     "Vestibulum velit tortor, tempor vitae ipsum non, rutrum vestibulum nulla. Morbi laoreet dui imperdiet ipsum eleifend vulputate. Mauris faucibus suscipit sapien nec imperdiet. Vestibulum malesuada vulputate tellus, ac congue massa pretium sit amet. Quisque non tempus ligula. Proin euismod finibus nulla vitae tempus. Morbi ut ligula ut leo bibendum ultrices sed a neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;",
             },
         ],
-        2021: [
+        2023: [
             {
                 timestamp: new Date("2021-05-18T16:00:00Z"),
                 picture:
@@ -51,10 +51,10 @@ export default function posts() {
     return (
         <div className="relative overflow-visible flex flex-row">
             <div className="hidden md:block lg:block mr-20 ml-4 px-6 lg:px-0">
-                <Timeline years={Object.keys(response)} />
+                <Timeline years={Object.keys(response).reverse()} />
             </div>
             <PostsComponent postData={response} />
-            <SmallScreenToggle years={Object.keys(response)} />
+            <SmallScreenToggle years={Object.keys(response).reverse()} />
         </div>
     );
 }

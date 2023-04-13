@@ -18,7 +18,7 @@ const YearComponent = ({ year }) => {
 const scrollToYear = (year) => {
     const element = document.getElementById(year);
     const offset = 100;
-    const scrollPosition = element.getBoundingClientRect().top - offset;
+    const scrollPosition = element.getBoundingClientRect().top - document.body.getBoundingClientRect().top - offset;
 
     if (element) {
         window.scrollTo({
