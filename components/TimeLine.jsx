@@ -1,6 +1,8 @@
+import { log } from "next/dist/server/typescript/utils";
+
 const YearComponent = ({ year }) => {
     return (
-        <li className="mb-10 ml-6 h-20 last:h-6 last:mb-0">
+        <li className="mb-10 ml-6 md:h-20 h-6 md:last:h-6 last:mb-0">
             <span className="mt-1.5 absolute flex items-center justify-center w-3 h-3 bg-red-500 rounded-full -left-1.5 ring-8 ring-transparent dark:bg-red-400"></span>
             <button>
                 <h3
@@ -17,8 +19,12 @@ const YearComponent = ({ year }) => {
 };
 const scrollToYear = (year) => {
     const element = document.getElementById(year);
+    console.log(element, year);
     const offset = 100;
-    const scrollPosition = element.getBoundingClientRect().top - offset;
+    const scrollPosition =
+        element.getBoundingClientRect().top -
+        document.body.getBoundingClientRect().top -
+        offset;
 
     if (element) {
         window.scrollTo({
