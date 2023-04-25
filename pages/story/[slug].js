@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Story() {
     const router = useRouter();
     const { slug } = router.query;
-
+    console.log(slug);
     return (
         <>
             <div className="relative w-full aspect-video">

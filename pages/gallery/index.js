@@ -1,10 +1,10 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import data from "@/assets/images";
-import Event from "@/components/event";
+import EventRow from "@/components/eventRow";
 
 const GalleryPage = () => {
+    console.log("GALLERY PAGE");
     return (
         <div>
             <div>
@@ -19,8 +19,16 @@ const GalleryPage = () => {
                             <p className="text-left text-sm md:text-lg lg:text-xlxl p-2">
                                 {title}
                             </p>
+                            <Link
+                                href={{
+                                    pathname: "/gallery/[slug]",
+                                    query: { slug: title },
+                                }}
+                            >
+                                More
+                            </Link>
                         </div>
-                        <Event data={data[title]} />
+                        <EventRow data={data[title]} />
                     </div>
                 );
             })}
