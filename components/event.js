@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 export default Event = (props) => {
+    // const [imageBar, setImageBar] = useState();
+
+    // window.addEventListener("resize", handleResize);
+
+    // function handleResize() {
+    //     if (window.innerWidth < 360) {
+    //         console.log("sm");
+    //     } else if (window.innerWidth < 768 && window.innerWidth > 360) {
+    //         console.log("md");
+    //     } else {
+    //         console.log("lg");
+    //     }
+    // }
+
     console.log(props.data);
     let images = props.data;
     console.log("images");
