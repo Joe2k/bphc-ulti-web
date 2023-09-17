@@ -2,10 +2,12 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+import { useRouter } from 'next/router';
 
 export default function Navbar() {
     const { theme, setTheme, resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         setMounted(true);
@@ -89,7 +91,7 @@ export default function Navbar() {
                         <li>
                             <Link
                                 href="/posts"
-                                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                className={`block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme === 'light' ? (router.pathname === '/posts' ? 'text-red-500' : 'dark:text-white') : (router.pathname === '/posts' ? 'text-red-500' : 'text-white')}`}
                             >
                                 Posts
                             </Link>
@@ -97,7 +99,7 @@ export default function Navbar() {
                         <li>
                             <Link
                                 href="/story"
-                                className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                className={`block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme === 'light' ? (router.pathname === '/story' ? 'text-red-500' : 'dark:text-white') : (router.pathname === '/story' ? 'text-red-500' : 'text-white')}`}
                             >
                                 Stories
                             </Link>
@@ -105,7 +107,7 @@ export default function Navbar() {
                         <li>
                             <Link
                                 href="/jersey-wall"
-                                className="block text-base decoration-2 py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-red-500 md:p-0 dark:text-white md:dark:hover:text-red-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                                className={`block text-base decoration-2 py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme === 'light' ? (router.pathname === '/jersey-wall' ? 'text-red-500' : 'dark:text-white') : (router.pathname === '/jersey-wall' ? 'text-red-500' : 'text-white')}`}
                             >
                                 Jersey Wall
                             </Link>
