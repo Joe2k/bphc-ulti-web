@@ -1,4 +1,6 @@
 import StoryCard from "@/components/StoryCard";
+import StoryCardData from "@/components/StoryCardData";
+import { story_array } from "./story_data";
 
 export default function Stories() {
     return (
@@ -7,9 +9,10 @@ export default function Stories() {
                 Stories
             </h1>
             <div className="mx-6 md:mx-0 flex justify-center flex-wrap">
-                <StoryCard />
-                <StoryCard />
-                <StoryCard />
+            {story_array.map((story, index) => (
+          <StoryCard key={index} data={story} />
+            ))}
+                {/* Render more StoryCard components with different data */}
             </div>
         </>
     );

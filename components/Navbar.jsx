@@ -91,7 +91,7 @@ export default function Navbar() {
                         <li>
                             <Link
                                 href="/posts"
-                                className={`block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme === 'light' ? (router.pathname === '/posts' ? 'text-red-500' : 'dark:text-white') : (router.pathname === '/posts' ? 'text-red-500' : 'text-white')}`}
+                                className={`block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme === 'light' ? (router.pathname.includes('/posts') ? 'text-red-500' : 'dark:text-white') : (router.pathname.includes('/posts') ? 'text-red-500' : 'text-white')}`}
                             >
                                 Posts
                             </Link>
@@ -99,7 +99,7 @@ export default function Navbar() {
                         <li>
                             <Link
                                 href="/story"
-                                className={`block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme === 'light' ? (router.pathname === '/story' ? 'text-red-500' : 'dark:text-white') : (router.pathname === '/story' ? 'text-red-500' : 'text-white')}`}
+                                className={`block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme === 'light' ? (router.pathname.includes('/story') ? 'text-red-500' : 'dark:text-white') : (router.pathname.includes('/story') ? 'text-red-500' : 'text-white')}`}
                             >
                                 Stories
                             </Link>
@@ -107,7 +107,7 @@ export default function Navbar() {
                         <li>
                             <Link
                                 href="/jersey-wall"
-                                className={`block text-base decoration-2 py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme === 'light' ? (router.pathname === '/jersey-wall' ? 'text-red-500' : 'dark:text-white') : (router.pathname === '/jersey-wall' ? 'text-red-500' : 'text-white')}`}
+                                className={`block text-base decoration-2 py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme =='light' ? (router.pathname.includes('/jersey-wall') ? 'text-red-500' : 'dark:text-white') : (router.pathname.includes('/jersey-wall') ? 'text-red-500' : 'text-white')}`}
                             >
                                 Jersey Wall
                             </Link>
