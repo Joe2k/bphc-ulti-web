@@ -1,5 +1,4 @@
 import StoryCard from "@/components/StoryCard";
-import StoryCardData from "@/components/StoryCardData";
 import { story_array } from "./story_data";
 
 export default function Stories() {
@@ -12,7 +11,6 @@ export default function Stories() {
             {story_array.map((story, index) => (
           <StoryCard key={index} data={story} />
             ))}
-                {/* Render more StoryCard components with different data */}
             </div>
         </>
     );
