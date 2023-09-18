@@ -1,12 +1,7 @@
 import Video from "@/components/media/Video";
 import Picture from "@/components/media/Picture";
 import YouTubeVideo from "@/components/media/YouTubeVideo";
-
-const PostType = {
-    VID: "vid",
-    PICTURE: "picture",
-    YTVID: "ytvid",
-};
+import { PostType } from "@/data/postData";
 
 const SinglePostComponent = ({ post, isLastPost }) => {
     return (
@@ -25,10 +20,8 @@ const SinglePostComponent = ({ post, isLastPost }) => {
                     {post.body}
                 </p>
                 {post.type === PostType.VID && <Video link={post.url} />}
-                {post.type === PostType.PICTURE && <Picture link={post.url} />}
-                {post.type === PostType.YTVID && (
-                    <YouTubeVideo link={post.url} />
-                )}
+                {post.type === PostType.PIC && <Picture link={post.url} />}
+                {post.type === PostType.YT && <YouTubeVideo link={post.url} />}
                 {!isLastPost && (
                     <hr className="w-48 h-1 mx-auto my-8 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
                 )}
@@ -50,10 +43,10 @@ const YearComponent = ({ year, posts }) => {
                 <div key={idx}>
                     <p className="text-lg font-semibold text-gray-700 dark:text-gray-300 mt-4">
                         {type === PostType.VID
-                            ? "Videos"
-                            : type === PostType.PICTURE
-                            ? "Pictures"
-                            : "YouTube Videos"}
+                            ? PostType.VID
+                            : type === PostType.YT
+                            ? PostType.YT
+                            : PostType.PIC}
                     </p>
                     {allPostsOfType.map((post, idx) => (
                         <SinglePostComponent
