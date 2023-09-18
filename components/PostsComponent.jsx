@@ -2,7 +2,7 @@ import Video from "@/components/media/Video";
 import Picture from "@/components/media/Picture";
 import YouTubeVideo from "@/components/media/YouTubeVideo";
 
-const MediaType = {
+const PostType = {
     VID: "vid",
     PICTURE: "picture",
     YTVID: "ytvid",
@@ -24,9 +24,9 @@ const SinglePostComponent = ({ post, isLastPost }) => {
                 <p className="text-sm font-normal text-gray-500 dark:text-gray-400 mt-2">
                     {post.body}
                 </p>
-                {post.type === MediaType.VID && <Video link={post.url} />}
-                {post.type === MediaType.PICTURE && <Picture link={post.url} />}
-                {post.type === MediaType.YTVID && (
+                {post.type === PostType.VID && <Video link={post.url} />}
+                {post.type === PostType.PICTURE && <Picture link={post.url} />}
+                {post.type === PostType.YTVID && (
                     <YouTubeVideo link={post.url} />
                 )}
                 {!isLastPost && (
@@ -46,20 +46,20 @@ const YearComponent = ({ year, posts }) => {
             <p className="text-2xl underline underline-offset-8 decoration-red-500 dark:decoration-red-400">
                 {year}
             </p>
-            {Object.entries(posts).map(([type, postsOfType], idx) => (
+            {Object.entries(posts).map(([type, allPostsOfType], idx) => (
                 <div key={idx}>
                     <p className="text-lg font-semibold text-gray-700 dark:text-gray-300 mt-4">
-                        {type === MediaType.VID
+                        {type === PostType.VID
                             ? "Videos"
-                            : type === MediaType.PICTURE
+                            : type === PostType.PICTURE
                             ? "Pictures"
                             : "YouTube Videos"}
                     </p>
-                    {postsOfType.map((post, idx) => (
+                    {allPostsOfType.map((post, idx) => (
                         <SinglePostComponent
                             key={post.timestamp}
                             post={post}
-                            isLastPost={idx === postsOfType.length - 1}
+                            isLastPost={idx === allPostsOfType.length - 1}
                         />
                     ))}
                 </div>
