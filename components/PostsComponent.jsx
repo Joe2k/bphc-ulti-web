@@ -5,8 +5,8 @@ import YouTubeVideo from "@/components/media/YouTubeVideo";
 const MediaType = {
     VID: "vid",
     PICTURE: "picture",
-    YTVID: "ytvid"
-  };
+    YTVID: "ytvid",
+};
 
 const SinglePostComponent = ({ post, isLastPost }) => {
     return (
@@ -26,7 +26,9 @@ const SinglePostComponent = ({ post, isLastPost }) => {
                 </p>
                 {post.type === MediaType.VID && <Video link={post.url} />}
                 {post.type === MediaType.PICTURE && <Picture link={post.url} />}
-                {post.type === MediaType.YTVID && <YouTubeVideo link={post.url} />}
+                {post.type === MediaType.YTVID && (
+                    <YouTubeVideo link={post.url} />
+                )}
                 {!isLastPost && (
                     <hr className="w-48 h-1 mx-auto my-8 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
                 )}
