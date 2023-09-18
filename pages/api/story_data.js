@@ -1,8 +1,8 @@
-//write functions here to take data and push to story_array
+//write functions here to take data and push
 
-export const stories = [
+const stories = [
     {
-        slug: "arena-2023", //keep this unique
+        slug: "arena-2023",
         teamPic:
             "https://images.unsplash.com/photo-1628891890467-b79f2c8ba9dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvcnRzJTIwdGVhbXxlbnwwfHwwfHw%3D",
         profilePic:
@@ -14,7 +14,7 @@ export const stories = [
         body: "Hello how is it going",
     },
     {
-        slug: "sectionals-2023", //keep this unique
+        slug: "sectionals-2023",
         teamPic:
             "https://images.unsplash.com/photo-1628891890467-b79f2c8ba9dc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvcnRzJTIwdGVhbXxlbnwwfHwwfHw%3D",
         profilePic:
@@ -26,3 +26,5 @@ export const stories = [
         body: "Its going fine",
     },
 ];
+
+export default stories;
