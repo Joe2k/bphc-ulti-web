@@ -4,23 +4,26 @@ import Link from "next/link";
 export default function StoryCard({ data }) {
     return (
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg drop-shadow-2xl dark:bg-gray-800 dark:border-gray-700 m-4">
-            <Link href={data.href} className="block relative w-full h-48">
+            <Link
+                href={`/story/${data.slug}`}
+                className="block relative w-full h-48"
+            >
                 <Image
-                    src={data.teampic}
+                    src={data.teamPic}
                     alt="Team Pic"
-                    fill = {true}
+                    fill={true}
                     className="rounded-t-lg"
                     unoptimized={true}
                 />
             </Link>
 
             <div className="p-5">
-                <Link href={data.href}>
+                <Link href={`/story/${data.slug}`}>
                     <div className="mb-2 flow-root">
                         <div className="float-left ">
                             <img
                                 className="inline w-10 h-10 p-1 rounded-full ring-2 ring-blue-400 dark:ring-blue-500"
-                                src={data.profilepic}
+                                src={data.profilePic}
                                 alt="Bordered avatar"
                             />
                             <span className="ml-3 font-normal text-blue-600 dark:text-blue-200">
@@ -37,10 +40,10 @@ export default function StoryCard({ data }) {
                     </h5>
                 </Link>
                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    {data.brief_content}
+                    {data.intro}
                 </p>
                 <Link
-                    href={data.href}
+                    href={`/story/${data.slug}`}
                     className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                 >
                     Read more

@@ -1,17 +1,17 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { story_array } from "./story_data";
+import { stories } from "./data";
 
 export default function Story() {
     const router = useRouter();
     const { slug } = router.query;
-    const story = story_array.find((story) => story.href.endsWith(slug));
+    const story = stories.find((story) => story.slug.endsWith(slug));
 
     return (
         <>
             <div className="relative w-full aspect-video">
                 <Image
-                    src={story.teampic}
+                    src={story.teamPic}
                     alt="Team pic"
                     fill={true}
                     unoptimized={true}
@@ -25,7 +25,7 @@ export default function Story() {
                     <div className="float-left ">
                         <img
                             className="inline w-10 h-10 p-1 rounded-full ring-2 ring-blue-400 dark:ring-blue-500"
-                            src={story.profilepic}
+                            src={story.profilePic}
                             alt="Bordered avatar"
                         />
                         <span className="ml-3 font-normal text-blue-600 dark:text-blue-200">
@@ -39,7 +39,7 @@ export default function Story() {
                 </div>
 
                 <div className="prose dark:prose-invert mt-8 prose-h1:text-2xl">
-                    <p>{story.body_content}</p>
+                    <p>{story.body}</p>
                 </div>
             </div>
         </>

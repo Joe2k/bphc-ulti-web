@@ -2,7 +2,13 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
+
+const navLinks = [
+    { href: "/posts", label: "Posts" },
+    { href: "/story", label: "Stories" },
+    { href: "/jersey-wall", label: "Jersey Wall" },
+];
 
 export default function Navbar() {
     const { theme, setTheme, resolvedTheme } = useTheme();
@@ -76,42 +82,31 @@ export default function Navbar() {
                         >
                             <path
                                 fillRule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                d="M3 5a1 1 0 011-1h12 a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12 a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12 a1 1 0 110 2H4a1 1 0 01-1-1z"
                                 clipRule="evenodd"
                             ></path>
                         </svg>
                     </button>
                 </div>
-
                 <div
                     className="hidden w-full md:block md:w-auto"
                     id="navbar-default"
                 >
                     <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700 text-base items-center">
-                        <li>
-                            <Link
-                                href="/posts"
-                                className={`block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme === 'light' ? (router.pathname.includes('/posts') ? 'text-red-500' : 'dark:text-white') : (router.pathname.includes('/posts') ? 'text-red-500' : 'text-white')}`}
-                            >
-                                Posts
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/story"
-                                className={`block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme === 'light' ? (router.pathname.includes('/story') ? 'text-red-500' : 'dark:text-white') : (router.pathname.includes('/story') ? 'text-red-500' : 'text-white')}`}
-                            >
-                                Stories
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                href="/jersey-wall"
-                                className={`block text-base decoration-2 py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${theme =='light' ? (router.pathname.includes('/jersey-wall') ? 'text-red-500' : 'dark:text-white') : (router.pathname.includes('/jersey-wall') ? 'text-red-500' : 'text-white')}`}
-                            >
-                                Jersey Wall
-                            </Link>
-                        </li>
+                        {navLinks.map((link, index) => (
+                            <li key={index}>
+                                <Link
+                                    href={link.href}
+                                    className={`block py-2 pl-3 pr-4 rounded md:border-0 md:p-0 ${
+                                        router.pathname.includes(link.href)
+                                            ? "text-red-500"
+                                            : "text-black dark:text-white"
+                                    }`}
+                                >
+                                    {link.label}
+                                </Link>
+                            </li>
+                        ))}
                         <li>
                             <button
                                 aria-label="Toggle Dark Mode"
