@@ -1,11 +1,15 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-import stories from "../api/story_data";
+import stories from "../../data/story_data";
 
 export default function Story() {
     const router = useRouter();
     const { slug } = router.query;
     const story = stories.find((story) => story.slug.endsWith(slug));
+
+    if (!story) {
+        return <div>Story not found</div>;
+    }
 
     return (
         <>

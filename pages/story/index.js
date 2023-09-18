@@ -1,5 +1,5 @@
 import StoryCard from "@/components/StoryCard";
-import stories from "../api/story_data";
+import stories from "../../data/story_data";
 
 export default function Stories() {
     return (
