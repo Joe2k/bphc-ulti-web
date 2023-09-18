@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
-import stories from "../../data/story_data";
+import stories from "../../data/storyData";
 
 export default function Story() {
     const router = useRouter();

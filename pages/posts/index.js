@@ -1,7 +1,7 @@
 import Timeline from "@/components/TimeLine";
 import PostsComponent from "@/components/PostsComponent";
 import SmallScreenToggle from "@/components/SmallScreenToggle";
-import posts from "../../data/post_data";
+import posts from "../../data/postData";
 
 export default function Posts() {
     // Group items by year and type
